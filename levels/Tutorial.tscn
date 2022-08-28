@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/background/background_layer_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/background/background_layer_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/background/background_layer_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/tileset/Tutorial.tres" type="TileSet" id=4]
+[ext_resource path="res://entities/Character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/JumpCoins.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/fonts/Silkscreen-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scripts/MainScript.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 10 )
+start_x = -23
+start_y = -149
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 535.889, 243.5 )
+scale = Vector2( 4.10556, 4.10556 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 536.333, 245.5 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 530, 242 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Diamond" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 1349, 356 )
+Map = "res://levels/Level1.tscn"
+
+[node name="JumpCoins" parent="Entities" instance=ExtResource( 7 )]
+position = Vector2( 1146, 353 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -32, -100 )
+rotation = 6.28319
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 17, 17 )
+cell_tile_origin = 1
+cell_clip_uv = true
+format = 1
+tile_data = PoolIntArray( -196606, 45, 1, -131070, 45, 1, -65534, 45, 1, 2, 45, 1, 65538, 45, 1, 131074, 45, 1, 196610, 45, 1, 262146, 45, 1, 327682, 45, 1, 393218, 45, 1, 458754, 45, 1, 524289, 15, 0, 524290, 45, 1, 589825, 15, 0, 589826, 45, 1, 655361, 15, 0, 655362, 45, 1, 720897, 15, 0, 720898, 45, 1, 720914, 29, 0, 786433, 15, 0, 786434, 45, 1, 786443, 34, 0, 786444, 34, 1, 786445, 34, 1, 786446, 34, 1, 786447, 34, 1, 786448, 34, 2, 786450, 10, 0, 851970, 45, 1, 851979, 45, 0, 851980, 45, 1, 851981, 45, 1, 851982, 45, 1, 851983, 45, 1, 851984, 45, 2, 917506, 45, 1, 917515, 46, 0, 917516, 46, 1, 917517, 46, 1, 917518, 46, 1, 917519, 46, 1, 917520, 46, 2, 917544, 50, 0, 983042, 45, 1, 983080, 50, 65536, 1048578, 45, 1, 1048610, 32, 0, 1048611, 32, 1, 1048612, 32, 1, 1048613, 32, 2, 1048616, 32, 0, 1048617, 32, 1, 1048618, 32, 1, 1048619, 32, 2, 1114113, 15, 0, 1114114, 45, 1, 1114123, 21, 0, 1114124, 22, 0, 1114125, 22, 0, 1114126, 22, 0, 1114127, 22, 0, 1114128, 22, 0, 1114129, 22, 0, 1114130, 23, 0, 1179649, 15, 0, 1179651, 34, 0, 1179652, 34, 1, 1179653, 34, 1, 1179654, 34, 1, 1179655, 34, 1, 1179656, 34, 1, 1179657, 34, 1, 1179658, 34, 1, 1179659, 34, 1, 1179660, 34, 1, 1179661, 34, 1, 1179662, 34, 1, 1179663, 34, 1, 1179664, 34, 1, 1179665, 34, 1, 1179666, 34, 1, 1179667, 34, 1, 1179668, 34, 1, 1179669, 34, 1, 1179670, 34, 1, 1179671, 34, 1, 1179672, 34, 1, 1179673, 34, 1, 1179674, 34, 1, 1179675, 34, 1, 1179676, 34, 1, 1179677, 34, 1, 1179678, 34, 1, 1179679, 34, 2, 1179681, 15, 0, 1179682, 16, 0, 1179683, 16, 0, 1179684, 16, 0, 1179685, 16, 0, 1179686, 16, 0, 1179693, 15, 0, 1179694, 16, 0, 1179695, 17, 0, 1245185, 15, 0, 1245187, 45, 0, 1245188, 45, 1, 1245189, 45, 1, 1245190, 45, 1, 1245191, 45, 1, 1245192, 45, 1, 1245193, 45, 1, 1245194, 45, 1, 1245195, 45, 1, 1245196, 45, 1, 1245197, 45, 1, 1245198, 45, 1, 1245199, 45, 1, 1245200, 45, 1, 1245201, 45, 1, 1245202, 45, 1, 1245203, 45, 1, 1245204, 45, 1, 1245205, 45, 1, 1245206, 45, 1, 1245207, 45, 1, 1245208, 45, 1, 1245209, 45, 1, 1245210, 45, 1, 1245211, 45, 1, 1245212, 45, 1, 1245213, 45, 1, 1245214, 45, 1, 1245215, 45, 2, 1245216, 47, 0, 1245217, 47, 0, 1245218, 47, 0, 1245219, 47, 0, 1245220, 47, 0, 1245221, 47, 0, 1245222, 47, 0, 1245223, 47, 0, 1245224, 47, 0, 1245225, 47, 0, 1245226, 47, 0, 1245227, 47, 0, 1245228, 47, 0, 1245229, 47, 0, 1245230, 47, 0, 1245231, 47, 0, 1245232, 47, 0, 1245233, 47, 0, 1245234, 47, 0, 1245235, 47, 0, 1245236, 47, 0, 1245237, 47, 0, 1245238, 47, 0, 1245239, 47, 0, 1245240, 47, 0, 1245241, 47, 0, 1310723, 45, 0, 1310724, 45, 1, 1310725, 45, 1, 1310726, 45, 1, 1310727, 45, 1, 1310728, 45, 1, 1310729, 45, 1, 1310730, 45, 1, 1310731, 45, 1, 1310732, 45, 1, 1310733, 45, 1, 1310734, 45, 1, 1310735, 45, 1, 1310736, 45, 1, 1310737, 45, 1, 1310738, 45, 1, 1310739, 45, 1, 1310740, 45, 1, 1310741, 45, 1, 1310742, 45, 1, 1310743, 45, 1, 1310744, 45, 1, 1310745, 45, 1, 1310746, 45, 1, 1310747, 45, 1, 1310748, 45, 1, 1310749, 45, 1, 1310750, 45, 1, 1310751, 45, 2, 1310752, 47, 65536, 1310753, 47, 65536, 1310754, 47, 65536, 1310755, 47, 65536, 1310756, 47, 65536, 1310757, 47, 65536, 1310758, 47, 65536, 1310759, 47, 65536, 1310760, 47, 65536, 1310761, 47, 65536, 1310762, 47, 65536, 1310763, 47, 65536, 1310764, 47, 65536, 1310765, 47, 65536, 1310766, 47, 65536, 1310767, 47, 65536, 1310768, 47, 65536, 1310769, 47, 65536, 1310770, 47, 65536, 1310771, 47, 65536, 1310772, 47, 65536, 1310773, 47, 65536, 1310774, 47, 65536, 1310775, 47, 65536, 1310776, 47, 65536, 1310777, 47, 65536, 1376257, 19, 0, 1376258, 16, 0, 1376259, 16, 0, 1376260, 16, 0, 1376261, 16, 0, 1376274, 16, 0, 1376275, 16, 0, 1376276, 16, 0, 1376277, 16, 0, 1376278, 16, 0, 1376279, 16, 0, 1376280, 16, 0, 1376281, 16, 0, 1376282, 16, 0, 1376283, 16, 0, 1376284, 16, 0, 1376285, 16, 0, 1376286, 17, 0, 1376288, 47, 65536, 1376289, 47, 65536, 1376290, 47, 65536, 1376291, 47, 65536, 1376292, 47, 65536, 1376293, 47, 65536, 1376294, 47, 65536, 1376295, 47, 65536, 1376296, 47, 65536, 1376297, 47, 65536, 1376298, 47, 65536, 1376299, 47, 65536, 1376300, 47, 65536, 1376301, 47, 65536, 1376302, 47, 65536, 1376303, 47, 65536, 1376304, 47, 65536, 1376305, 47, 65536, 1376306, 47, 65536, 1376307, 47, 65536, 1376308, 47, 65536, 1376309, 47, 65536, 1376310, 47, 65536, 1376311, 47, 65536, 1376312, 47, 65536, 1376313, 47, 65536 )
+
+[node name="Character" parent="." instance=ExtResource( 5 )]
+position = Vector2( -23, -149 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 905.0
+margin_top = 261.0
+margin_right = 1281.0
+margin_bottom = 303.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS [SPACE] TO JUMP"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+margin_left = 906.0
+margin_top = 303.0
+margin_right = 1282.0
+margin_bottom = 345.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS [R] TO Restart"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 161.0
+margin_top = 163.0
+margin_right = 773.0
+margin_bottom = 205.0
+custom_fonts/font = SubResource( 1 )
+text = "Press [A/D] OR Arrows TO WALK"
+align = 1
+uppercase = true
+
+[connection signal="body_entered" from="Entities/Diamond" to="Entities/Diamond" method="_on_Diamond_body_entered"]
+[connection signal="body_entered" from="Entities/Diamond" to="Character" method="_on_Diamond_body_entered"]
+[connection signal="body_entered" from="Entities/JumpCoins" to="Character" method="_on_JumpCoins_body_entered"]
+[connection signal="jump_change" from="Character" to="." method="_on_Character_jump_change"]

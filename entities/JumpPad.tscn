@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/tileset/pad.png" type="Texture" id=1]
+[ext_resource path="res://scripts/JumpPad.gd" type="Script" id=2]
+[ext_resource path="res://assets/tileset/pad_active.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.875, 1 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Active",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 1.0
+} ]
+
+[node name="JumpPad" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 48, 44 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 48, 51 )
+scale = Vector2( 1.83333, 1.77778 )
+frames = SubResource( 2 )
+animation = "Idle"
+playing = true

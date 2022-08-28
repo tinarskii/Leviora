@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/background/background_layer_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/background/background_layer_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/background/background_layer_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/tileset/Tutorial.tres" type="TileSet" id=4]
+[ext_resource path="res://entities/Character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/JumpPad.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/fonts/Silkscreen-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scripts/MainScript.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 535.889, 243.5 )
+scale = Vector2( 4.10556, 4.10556 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 536.333, 245.5 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 530, 242 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+
+[node name="Diamond" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 338.5, 69 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="JumpPad" parent="Entities" instance=ExtResource( 7 )]
+position = Vector2( 239.5, 171 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 17, 17 )
+cell_custom_transform = Transform2D( 128, 0, 0, 64, 0, 0 )
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( 262162, 50, 0, 327698, 50, 65536, 393234, 32, 0, 393235, 32, 1, 393236, 32, 1, 393237, 32, 2, 720914, 29, 0, 786444, 32, 0, 786445, 32, 1, 786446, 32, 1, 786447, 32, 2, 786450, 10, 0, 1179651, 47, 0, 1179652, 47, 0, 1179653, 47, 0, 1179654, 47, 0, 1179655, 47, 0, 1179656, 47, 0, 1179657, 47, 0, 1179658, 47, 0, 1179659, 47, 0, 1179660, 47, 0, 1179661, 47, 0, 1179662, 47, 0, 1179663, 47, 0, 1179664, 47, 0, 1179665, 47, 0, 1179666, 47, 0, 1179667, 38, 0, 1179668, 38, 1, 1179669, 38, 1, 1179670, 38, 1, 1179671, 38, 1, 1179672, 38, 1, 1179673, 38, 1, 1179674, 38, 1, 1179675, 38, 1, 1179676, 38, 1, 1179677, 38, 1, 1179678, 38, 1, 1179679, 38, 1, 1179680, 38, 1, 1179681, 38, 1, 1179682, 38, 1, 1179683, 38, 1, 1179684, 38, 1, 1179685, 38, 1, 1179686, 38, 1, 1179687, 38, 1, 1179688, 38, 1, 1179689, 38, 1, 1179690, 38, 1, 1179691, 38, 2, 1245187, 47, 65536, 1245188, 47, 65536, 1245189, 47, 65536, 1245190, 47, 65536, 1245191, 47, 65536, 1245192, 47, 65536, 1245193, 47, 65536, 1245194, 47, 65536, 1245195, 47, 65536, 1245196, 47, 65536, 1245197, 47, 65536, 1245198, 47, 65536, 1245199, 47, 65536, 1245200, 47, 65536, 1245201, 47, 65536, 1245202, 47, 65536, 1245203, 45, 0, 1245204, 45, 1, 1245205, 45, 1, 1245206, 45, 1, 1245207, 45, 1, 1245208, 45, 1, 1245209, 45, 1, 1245210, 45, 1, 1245211, 45, 1, 1245212, 45, 1, 1245213, 45, 1, 1245214, 45, 1, 1245215, 45, 1, 1245216, 45, 1, 1245217, 45, 1, 1245218, 45, 1, 1245219, 45, 1, 1245220, 45, 1, 1245221, 45, 1, 1245222, 45, 1, 1245223, 45, 1, 1245224, 45, 1, 1245225, 45, 1, 1245226, 45, 1, 1245227, 45, 2, 1310723, 47, 65536, 1310724, 47, 65536, 1310725, 47, 65536, 1310726, 47, 65536, 1310727, 47, 65536, 1310728, 47, 65536, 1310729, 47, 65536, 1310730, 47, 65536, 1310731, 47, 65536, 1310732, 47, 65536, 1310733, 47, 65536, 1310734, 47, 65536, 1310735, 47, 65536, 1310736, 47, 65536, 1310737, 47, 65536, 1310738, 47, 65536, 1310739, 45, 1, 1310740, 45, 1, 1310741, 45, 1, 1310742, 45, 1, 1310743, 45, 1, 1310744, 45, 1, 1310745, 45, 1, 1310746, 45, 1, 1310747, 45, 1, 1310748, 45, 1, 1310749, 45, 1, 1310750, 45, 1, 1310751, 45, 1, 1310752, 45, 1, 1310753, 45, 1, 1310754, 45, 1, 1310755, 45, 1, 1310756, 45, 1, 1310757, 45, 1, 1310758, 45, 1, 1310759, 45, 1, 1310760, 45, 1, 1310761, 45, 1, 1310762, 45, 1, 1310763, 45, 2 )
+
+[node name="Character" parent="." instance=ExtResource( 5 )]
+position = Vector2( -23, -149 )
+jump_limit = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 238.0
+margin_top = 182.0
+margin_right = 646.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 1 )
+text = "level 2/19: BOINK BOINK!"
+
+[connection signal="body_entered" from="Entities/Diamond" to="Entities/Diamond" method="_on_Diamond_body_entered"]
+[connection signal="body_entered" from="Entities/Diamond" to="Character" method="_on_Diamond_body_entered"]
+[connection signal="body_entered" from="Entities/JumpPad" to="Entities/JumpPad" method="_on_JumpPad_body_entered"]
+[connection signal="body_exited" from="Entities/JumpPad" to="Entities/JumpPad" method="_on_JumpPad_body_exited"]
+[connection signal="jump_change" from="Character" to="." method="_on_Character_jump_change"]

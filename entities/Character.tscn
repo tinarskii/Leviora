@@ -1,0 +1,140 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/characters/idle.png" type="Texture" id=1]
+[ext_resource path="res://assets/characters/jump.png" type="Texture" id=2]
+[ext_resource path="res://assets/characters/walk.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Character.gd" type="Script" id=4]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=5]
+[ext_resource path="res://assets/fonts/Silkscreen-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 768, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 1024, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 1280, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 1024, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 1280, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 6.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 19.0
+height = 32.0
+
+[sub_resource type="DynamicFont" id=18]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="Leviora" type="KinematicBody2D"]
+position = Vector2( 4, -102 )
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 468, 418 )
+scale = Vector2( 0.530149, 0.530149 )
+frames = SubResource( 16 )
+animation = "Idle"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 463, 418 )
+shape = SubResource( 17 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 63, 104 )
+anchor_mode = 0
+rotating = true
+current = true
+limit_left = 90
+limit_bottom = 598
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+offset_h = 0.01
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="JumpLabel" type="Label" parent="HUD"]
+anchor_left = 0.615
+anchor_right = 1.0
+anchor_bottom = 0.0683333
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -1.0
+margin_bottom = -0.999977
+custom_fonts/font = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": true
+}

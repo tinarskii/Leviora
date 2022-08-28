@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/background/background_layer_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/background/background_layer_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/background/background_layer_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/tileset/Tutorial.tres" type="TileSet" id=4]
+[ext_resource path="res://entities/Character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/MovingPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/fonts/Silkscreen-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scripts/MainScript.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Level4" type="Node2D"]
+script = ExtResource( 10 )
+start_x = -257
+start_y = 56
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 535.889, 243.5 )
+scale = Vector2( 4.10556, 4.10556 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 536.333, 245.5 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 530, 242 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+z_index = 1
+
+[node name="MovingPlatform" parent="Entities" instance=ExtResource( 7 )]
+position = Vector2( 151.5, 306 )
+scale = Vector2( 1.034, 1.196 )
+z_index = 1
+move_to = Vector2( 117, 0 )
+
+[node name="Diamond" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 365, 274.5 )
+scale = Vector2( 0.5, 0.5 )
+Map = "res://levels/Level5.tscn"
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 17, 17 )
+cell_custom_transform = Transform2D( 128, 0, 0, 64, 0, 0 )
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( 65538, 36, 2, 131074, 36, 2, 196610, 36, 2, 262146, 36, 2, 262175, 38, 0, 262176, 38, 1, 262177, 38, 1, 262178, 38, 1, 262179, 38, 1, 262180, 38, 1, 262181, 38, 1, 262182, 38, 1, 262183, 38, 1, 262184, 38, 1, 262185, 38, 1, 262186, 38, 1, 262187, 38, 1, 262188, 38, 1, 327682, 36, 2, 327711, 45, 0, 327712, 45, 1, 327713, 45, 1, 327714, 45, 1, 327715, 45, 1, 327716, 45, 1, 327717, 45, 1, 327718, 45, 1, 327719, 45, 1, 327720, 45, 1, 327721, 45, 1, 327722, 45, 1, 327723, 45, 1, 327724, 45, 1, 393218, 36, 2, 393247, 45, 0, 393248, 45, 1, 393249, 45, 1, 393250, 45, 1, 393251, 45, 1, 393252, 45, 1, 393253, 45, 1, 393254, 45, 1, 393255, 45, 1, 393256, 45, 1, 393257, 45, 1, 393258, 45, 1, 393259, 45, 1, 393260, 45, 1, 458754, 36, 2, 458783, 45, 0, 458784, 45, 1, 458785, 45, 1, 458786, 45, 1, 458787, 45, 1, 458788, 45, 1, 458789, 45, 1, 458790, 45, 1, 458791, 45, 1, 458792, 45, 1, 458793, 45, 1, 458794, 45, 1, 458795, 45, 1, 458796, 45, 1, 524290, 36, 2, 524319, 45, 0, 524320, 45, 1, 524321, 45, 1, 524322, 45, 1, 524323, 45, 1, 524324, 45, 1, 524325, 45, 1, 524326, 45, 1, 524327, 45, 1, 524328, 45, 1, 524329, 45, 1, 524330, 45, 1, 524331, 45, 1, 524332, 45, 1, 589826, 36, 2, 589855, 45, 0, 589856, 45, 1, 589857, 45, 1, 589858, 45, 1, 589859, 45, 1, 589860, 45, 1, 589861, 45, 1, 589862, 45, 1, 589863, 45, 1, 589864, 45, 1, 589865, 45, 1, 589866, 45, 1, 589867, 45, 1, 589868, 45, 1, 655362, 36, 2, 655391, 45, 0, 655392, 45, 1, 655393, 45, 1, 655394, 45, 1, 655395, 45, 1, 655396, 45, 1, 655397, 45, 1, 655398, 45, 1, 655399, 45, 1, 655400, 45, 1, 655401, 45, 1, 655402, 45, 1, 655403, 45, 1, 655404, 45, 1, 720898, 36, 2, 720914, 29, 0, 720927, 45, 0, 720928, 45, 1, 720929, 45, 1, 720930, 45, 1, 720931, 45, 1, 720932, 45, 1, 720933, 45, 1, 720934, 45, 1, 720935, 45, 1, 720936, 45, 1, 720937, 45, 1, 720938, 45, 1, 720939, 45, 1, 720940, 45, 1, 786434, 36, 2, 786450, 10, 0, 786463, 45, 0, 786464, 45, 1, 786465, 45, 1, 786466, 45, 1, 786467, 45, 1, 786468, 45, 1, 786469, 45, 1, 786470, 45, 1, 786471, 45, 1, 786472, 45, 1, 786473, 45, 1, 786474, 45, 1, 786475, 45, 1, 786476, 45, 1, 851970, 36, 2, 851999, 45, 0, 852000, 45, 1, 852001, 45, 1, 852002, 45, 1, 852003, 45, 1, 852004, 45, 1, 852005, 45, 1, 852006, 45, 1, 852007, 45, 1, 852008, 45, 1, 852009, 45, 1, 852010, 45, 1, 852011, 45, 1, 852012, 45, 1, 917506, 36, 2, 917535, 45, 0, 917536, 45, 1, 917537, 45, 1, 917538, 45, 1, 917539, 45, 1, 917540, 45, 1, 917541, 45, 1, 917542, 45, 1, 917543, 45, 1, 917544, 45, 1, 917545, 45, 1, 917546, 45, 1, 917547, 45, 1, 917548, 45, 1, 983042, 36, 2, 983071, 45, 0, 983072, 45, 1, 983073, 45, 1, 983074, 45, 1, 983075, 45, 1, 983076, 45, 1, 983077, 45, 1, 983078, 45, 1, 983079, 45, 1, 983080, 45, 1, 983081, 45, 1, 983082, 45, 1, 983083, 45, 1, 983084, 45, 1, 1048578, 36, 2, 1048596, 50, 0, 1048607, 45, 0, 1048608, 45, 1, 1048609, 45, 1, 1048610, 45, 1, 1048611, 45, 1, 1048612, 45, 1, 1048613, 45, 1, 1048614, 45, 1, 1048615, 45, 1, 1048616, 45, 1, 1048617, 45, 1, 1048618, 45, 1, 1048619, 45, 1, 1048620, 45, 1, 1114114, 36, 2, 1114132, 50, 65536, 1114143, 45, 0, 1114144, 45, 1, 1114145, 45, 1, 1114146, 45, 1, 1114147, 45, 1, 1114148, 45, 1, 1114149, 45, 1, 1114150, 45, 1, 1114151, 45, 1, 1114152, 45, 1, 1114153, 45, 1, 1114154, 45, 1, 1114155, 45, 1, 1114156, 45, 1, 1179650, 36, 2, 1179651, 38, 1, 1179652, 38, 1, 1179653, 38, 1, 1179654, 38, 1, 1179655, 38, 1, 1179656, 38, 1, 1179657, 47, 0, 1179658, 47, 0, 1179659, 47, 0, 1179660, 47, 0, 1179661, 47, 0, 1179662, 47, 0, 1179663, 47, 0, 1179664, 47, 0, 1179665, 47, 0, 1179666, 47, 0, 1179667, 47, 0, 1179668, 38, 1, 1179669, 38, 1, 1179670, 38, 1, 1179671, 38, 1, 1179672, 38, 1, 1179673, 38, 1, 1179674, 38, 1, 1179675, 38, 1, 1179676, 38, 1, 1179677, 38, 1, 1179678, 38, 1, 1179679, 38, 1, 1179680, 38, 1, 1179681, 38, 1, 1179682, 38, 1, 1179683, 38, 1, 1179684, 38, 1, 1179685, 38, 1, 1179686, 38, 1, 1179687, 38, 1, 1179688, 38, 1, 1179689, 38, 1, 1179690, 38, 1, 1179691, 38, 2, 1245187, 45, 1, 1245188, 45, 1, 1245189, 45, 1, 1245190, 45, 1, 1245191, 45, 1, 1245192, 45, 1, 1245193, 47, 65536, 1245194, 47, 65536, 1245195, 47, 65536, 1245196, 47, 65536, 1245197, 47, 65536, 1245198, 47, 65536, 1245199, 47, 65536, 1245200, 47, 65536, 1245201, 47, 65536, 1245202, 47, 65536, 1245203, 47, 65536, 1245204, 45, 1, 1245205, 45, 1, 1245206, 45, 1, 1245207, 45, 1, 1245208, 45, 1, 1245209, 45, 1, 1245210, 45, 1, 1245211, 45, 1, 1245212, 45, 1, 1245213, 45, 1, 1245214, 45, 1, 1245215, 45, 1, 1245216, 45, 1, 1245217, 45, 1, 1245218, 45, 1, 1245219, 45, 1, 1245220, 45, 1, 1245221, 45, 1, 1245222, 45, 1, 1245223, 45, 1, 1245224, 45, 1, 1245225, 45, 1, 1245226, 45, 1, 1245227, 45, 2, 1310723, 45, 1, 1310724, 45, 1, 1310725, 45, 1, 1310726, 45, 1, 1310727, 45, 1, 1310728, 45, 1, 1310729, 47, 65536, 1310730, 47, 65536, 1310731, 47, 65536, 1310732, 47, 65536, 1310733, 47, 65536, 1310734, 47, 65536, 1310735, 47, 65536, 1310736, 47, 65536, 1310737, 47, 65536, 1310738, 47, 65536, 1310739, 47, 65536, 1310740, 45, 1, 1310741, 45, 1, 1310742, 45, 1, 1310743, 45, 1, 1310744, 45, 1, 1310745, 45, 1, 1310746, 45, 1, 1310747, 45, 1, 1310748, 45, 1, 1310749, 45, 1, 1310750, 45, 1, 1310751, 45, 1, 1310752, 45, 1, 1310753, 45, 1, 1310754, 45, 1, 1310755, 45, 1, 1310756, 45, 1, 1310757, 45, 1, 1310758, 45, 1, 1310759, 45, 1, 1310760, 45, 1, 1310761, 45, 1, 1310762, 45, 1, 1310763, 45, 2 )
+
+[node name="Character" parent="." instance=ExtResource( 5 )]
+position = Vector2( -304, 58 )
+jump_limit = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 235.0
+margin_top = 263.0
+margin_right = 707.0
+margin_bottom = 305.0
+custom_fonts/font = SubResource( 1 )
+text = "level 4/19: MOOOOOOOOO(VE)"
+
+[connection signal="body_entered" from="Entities/Diamond" to="Entities/Diamond" method="_on_Diamond_body_entered"]
+[connection signal="body_entered" from="Entities/Diamond" to="Character" method="_on_Emerald_body_entered"]
+[connection signal="jump_change" from="Character" to="." method="_on_Character_jump_change"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tileset/Tutorial.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/JumpCoins.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 13 )
+
+[node name="JumpCoins" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 48, 44 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 128, 0, 0, 64, 0, 0 )
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( 262146, 51, 0 )
+
+[connection signal="body_entered" from="." to="." method="_on_JumpCoins_body_entered"]

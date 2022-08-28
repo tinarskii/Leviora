@@ -1,0 +1,142 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/background/background_layer_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/background/background_layer_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/background/background_layer_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/tileset/Tutorial.tres" type="TileSet" id=4]
+[ext_resource path="res://entities/Character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/Diamond.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/MovingPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/JumpPad.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/fonts/Silkscreen-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scripts/MainScript.gd" type="Script" id=10]
+[ext_resource path="res://entities/JumpCoins.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Level5" type="Node2D"]
+script = ExtResource( 10 )
+start_x = -257
+start_y = 56
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 535.889, 243.5 )
+scale = Vector2( 4.10556, 4.10556 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 536.333, 245.5 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1300, 730 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 530, 242 )
+scale = Vector2( 4.08333, 4.08333 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+z_index = 1
+
+[node name="MovingPlatforms" type="Node2D" parent="Entities"]
+
+[node name="MovingPlatform" parent="Entities/MovingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 149, 275 )
+scale = Vector2( 1.034, 1.196 )
+z_index = 1
+move_to = Vector2( 0, -100 )
+
+[node name="MovingPlatform2" parent="Entities/MovingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 391.5, 254.5 )
+scale = Vector2( 1.034, 1.196 )
+z_index = 1
+move_to = Vector2( 100, 0 )
+
+[node name="Diamond" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 730.5, 105 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="JumpPad" parent="Entities" instance=ExtResource( 8 )]
+position = Vector2( 222, 169.5 )
+scale = Vector2( 0.5, 0.5 )
+JUMP_ENERGY = 750
+
+[node name="JumpPad2" parent="Entities" instance=ExtResource( 8 )]
+modulate = Color( 0.945313, 0.0775452, 0.0775452, 1 )
+position = Vector2( 613, 271.5 )
+scale = Vector2( 0.5, 0.5 )
+JUMP_ENERGY = 1200
+
+[node name="JumpCoins" parent="Entities" instance=ExtResource( 11 )]
+position = Vector2( 278, 190.5 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -32, -100 )
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 17, 17 )
+cell_custom_transform = Transform2D( 128, 0, 0, 64, 0, 0 )
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( -1441790, 45, 1, -1376254, 45, 1, -1310718, 45, 1, -1245182, 45, 1, -1179646, 45, 1, -1114110, 45, 1, -1048574, 45, 1, -983038, 45, 1, -917502, 45, 1, -851966, 45, 1, -786430, 45, 1, -720894, 45, 1, -655358, 45, 1, -589822, 45, 1, -524286, 45, 1, -458750, 45, 1, -393214, 45, 1, -327678, 45, 1, -262142, 45, 1, -196606, 45, 1, -131070, 45, 1, -65534, 45, 1, 65535, 35, 0, 2, 45, 1, 65538, 36, 2, 131074, 35, 0, 196610, 36, 2, 262146, 36, 2, 327682, 36, 2, 393218, 36, 2, 393255, 50, 0, 458754, 36, 2, 458791, 50, 65536, 524290, 36, 2, 524327, 36, 0, 524328, 36, 1, 524329, 36, 1, 524330, 36, 1, 524331, 36, 1, 524332, 36, 2, 589826, 36, 2, 655362, 36, 2, 720898, 36, 2, 720914, 29, 0, 786434, 36, 2, 786446, 35, 0, 851970, 36, 2, 917506, 36, 2, 983042, 36, 2, 983059, 36, 0, 983060, 36, 1, 983061, 36, 1, 983062, 36, 2, 983073, 38, 0, 983074, 38, 1, 983075, 38, 2, 983079, 38, 0, 983080, 38, 1, 983081, 38, 2, 1048578, 36, 2, 1048609, 45, 0, 1048610, 45, 1, 1048611, 45, 2, 1048615, 45, 0, 1048616, 45, 1, 1048617, 45, 2, 1114114, 36, 2, 1114145, 45, 0, 1114146, 45, 1, 1114147, 45, 2, 1114151, 45, 0, 1114152, 45, 1, 1114153, 45, 2, 1179650, 36, 2, 1179651, 38, 1, 1179652, 38, 1, 1179653, 38, 1, 1179654, 38, 1, 1179655, 38, 1, 1179656, 38, 2, 1179681, 45, 0, 1179682, 45, 1, 1179683, 45, 2, 1179685, 35, 0, 1179687, 45, 0, 1179688, 45, 1, 1179689, 45, 2, 1245187, 45, 1, 1245188, 45, 1, 1245189, 45, 1, 1245190, 45, 1, 1245191, 45, 1, 1245192, 45, 2, 1245217, 45, 0, 1245218, 45, 1, 1245219, 45, 2, 1245223, 45, 0, 1245224, 45, 1, 1245225, 45, 2, 1310723, 45, 1, 1310724, 45, 1, 1310725, 45, 1, 1310726, 45, 1, 1310727, 45, 1, 1310728, 45, 2, 1310753, 45, 0, 1310754, 45, 1, 1310755, 45, 2, 1310759, 45, 0, 1310760, 45, 1, 1310761, 45, 2 )
+
+[node name="Character" parent="." instance=ExtResource( 5 )]
+position = Vector2( -304, 58 )
+jump_limit = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 162.0
+margin_top = 146.0
+margin_right = 795.0
+margin_bottom = 188.0
+custom_fonts/font = SubResource( 1 )
+text = "level 5/19: Advance Moving platform"
+
+[connection signal="body_entered" from="Entities/Diamond" to="Entities/Diamond" method="_on_Diamond_body_entered"]
+[connection signal="body_entered" from="Entities/Diamond" to="Character" method="_on_Emerald_body_entered"]
+[connection signal="body_entered" from="Entities/JumpPad" to="Entities/JumpPad" method="_on_JumpPad_body_entered"]
+[connection signal="body_exited" from="Entities/JumpPad" to="Entities/JumpPad" method="_on_JumpPad_body_exited"]
+[connection signal="body_entered" from="Entities/JumpPad2" to="Entities/JumpPad2" method="_on_JumpPad_body_entered"]
+[connection signal="body_exited" from="Entities/JumpPad2" to="Entities/JumpPad2" method="_on_JumpPad_body_exited"]
+[connection signal="body_entered" from="Entities/JumpCoins" to="Character" method="_on_JumpCoins_body_entered"]
+[connection signal="jump_change" from="Character" to="." method="_on_Character_jump_change"]
