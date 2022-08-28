@@ -91,6 +91,7 @@ move_to = Vector2( 100, 0 )
 [node name="Diamond" parent="Entities" instance=ExtResource( 6 )]
 position = Vector2( 730.5, 105 )
 scale = Vector2( 0.5, 0.5 )
+Map = "res://levels/Level6.tscn"
 
 [node name="JumpPad" parent="Entities" instance=ExtResource( 8 )]
 position = Vector2( 222, 169.5 )

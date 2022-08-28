@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Leviora"
-run/main_scene="res://levels/Level6.tscn"
+run/main_scene="res://levels/Tutorial.tscn"
 boot_splash/image="res://assets/background/background_layer_1.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
