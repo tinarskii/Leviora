@@ -72,6 +72,7 @@ scale = Vector2( 2, 2 )
 [node name="Diamond" parent="Entities" instance=ExtResource( 6 )]
 position = Vector2( 338.5, 69 )
 scale = Vector2( 0.5, 0.5 )
+Map = "res://levels/Level3.tscn"
 
 [node name="JumpPad" parent="Entities" instance=ExtResource( 7 )]
 position = Vector2( 239.5, 171 )

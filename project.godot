@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Leviora"
-run/main_scene="res://levels/Level5.tscn"
+run/main_scene="res://levels/Level6.tscn"
 boot_splash/image="res://assets/background/background_layer_1.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
